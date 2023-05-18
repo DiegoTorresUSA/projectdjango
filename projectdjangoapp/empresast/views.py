@@ -7,14 +7,19 @@ from .models import Operador, Vehiculo
 
 def index(request):
     concesionario_list = Operador.objects.all()
-    print(concesionario_list)
     return render(request, "empresast/index.html",{
         "concesionario_list": concesionario_list
     })
 
 
 def detalle(request, operador_id):
-    return HttpResponse(f"estas en la relación de vehículos de cada concesionario {operador_id}")
+    concesionario = get_object_or_404(Operador, pk=operador_id)    
+    print(operador_id)
+    print(concesionario)
+    return render(request, "empresast/detalle.html", {
+        "concesionario": concesionario
+    })
+    
 
 
 def vehiculos(request, operador_id):

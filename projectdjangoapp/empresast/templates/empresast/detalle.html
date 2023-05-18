@@ -1,8 +1,9 @@
-  <ul>
-    {% for vehiculo in vehiculos %}
-    <li>{{vehiculo.placa}}</a></li>
-    {% endfor %}
-  </ul>
+el detalle de vehiculos del concesionario:  <h1>{{ concesionario.concesionario_nombre }}</h1>
 
+<ul>
+  {% for vehiculo in concesionario.concesionario.all %}
+  <li>{{vehiculo.placa}}</li>
+  {% endfor %}
+</ul>
 
 

@@ -11,7 +11,7 @@ class Operador(models.Model):
         return concesionario_nombre
     
 class Vehiculo(models.Model):
-    concesionario = models.ForeignKey(Operador, on_delete=models.CASCADE)
+    concesionario = models.ForeignKey(Operador, on_delete=models.CASCADE, related_name="concesionario")
     placa = models.CharField(max_length=7)
     fecha_vinculacion = models.DateField("Fecha vinculación")
     modelo = models.IntegerField(default=0)
