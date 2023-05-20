@@ -1,9 +1,43 @@
-el detalle de vehiculos del concesionario:  <h1>{{ concesionario.concesionario_nombre }}</h1>
+<form action="{% url 'empresast:vehiculos' concesionario.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+  <legend><h1>{{ concesionario.concesionario_nombre }}</h1></legend>
+  {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+  {% for vehiculo in concesionario.concesionario.all %}
+    <input 
+      type="radio"
+      name="vehiculo"
+      id="vehiculo{{ forloop.counter }}"
+      value="{{ vehiculo.id }}"
+    >
+    <label for="z">
+
+    </label>
+  <li>{{vehiculo.placa}}</li>
+  {% endfor %}
+</fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} el detalle de vehiculos del concesionario:  <h1>{{ concesionario.concesionario_nombre }}</h1>
 
 <ul>
   {% for vehiculo in concesionario.concesionario.all %}
   <li>{{vehiculo.placa}}</li>
   {% endfor %}
-</ul>
+</ul> {% endcomment %}
 
 

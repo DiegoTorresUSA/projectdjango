@@ -12,10 +12,9 @@ def index(request):
     })
 
 
+
 def detalle(request, operador_id):
     concesionario = get_object_or_404(Operador, pk=operador_id)    
-    print(operador_id)
-    print(concesionario)
     return render(request, "empresast/detalle.html", {
         "concesionario": concesionario
     })
@@ -24,3 +23,10 @@ def detalle(request, operador_id):
 
 def vehiculos(request, operador_id):
     return HttpResponse(f"estas en la relación de vehículos de cada concesionario {operador_id}")
+
+
+def operadores(request):
+    concesionario_list = Operador.objects.all()
+    return render(request, "empresast/operadores.html",{
+        "concesionario_list": concesionario_list
+    })

@@ -1,3 +1,4 @@
+from typing import Any, Dict, Tuple
 from django.db import models
 
 # Create your models here.
@@ -18,9 +19,13 @@ class Vehiculo(models.Model):
     tipologia = models.CharField(max_length=20)
 
     def __str__(self):
-        placa = self.placa
+        placa = "Placa: " + self.placa + " - " + "Fecha vinculación: " + str(self.fecha_vinculacion) 
         return placa
     
+
+    def delete(self):
+        print("Vehiculo borrado")
+        super(Vehiculo, self).delete()
 
 
 

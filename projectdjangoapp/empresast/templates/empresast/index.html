@@ -1,7 +1,7 @@
 {% if concesionario_list %}
   <ul>
     {% for concesionario in concesionario_list %}
-    <li><a href="/empresast/{{ concesionario.id }}">{{ concesionario.concesionario_nombre}}</a></li>
+    <li><a href="{% url 'empresast:detail' concesionario.id %}">{{ concesionario.concesionario_nombre}}</a></li>
     {% endfor %}
   </ul>
   {% else %}
