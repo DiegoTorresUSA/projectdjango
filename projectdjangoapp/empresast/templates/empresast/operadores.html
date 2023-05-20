@@ -8,6 +8,40 @@ Seccion Operadores
 
 {% if concesionario_list %}
 
+<div class="card text-center">
+  <div class="card-header">
+    Relación de Concesionarios
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Concesionarios</h5>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Concesionario Código</th>
+          <th scope="col">Concesionario Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>101</td>
+          <td>Concexiuon Movil</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+
+
+
+
 <ul>
     {% for concesionario in concesionario_list %}
     <li><a href="{% url 'empresast:detail' concesionario.id %}">{{ concesionario.concesionario_nombre}}</a></li>
