@@ -10,6 +10,11 @@ class Operador(models.Model):
     def __str__(self):    
         concesionario_nombre = self.concesionario_nombre
         return concesionario_nombre
+
+
+    def delete(self, using=None, keep_parents=False):
+        print('Concesionario Eliminado')
+        super(Operador, self).delete()
     
 class Vehiculo(models.Model):
     concesionario = models.ForeignKey(Operador, on_delete=models.CASCADE, related_name="concesionario")
@@ -22,10 +27,12 @@ class Vehiculo(models.Model):
         placa = "Placa: " + self.placa + " - " + "Fecha vinculación: " + str(self.fecha_vinculacion) 
         return placa
     
-
     def delete(self):
         print("Vehiculo borrado")
         super(Vehiculo, self).delete()
+
+
+
 
 
 

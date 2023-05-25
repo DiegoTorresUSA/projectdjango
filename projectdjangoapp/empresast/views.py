@@ -3,22 +3,20 @@ from django.http import HttpResponse
 
 from .models import Operador, Vehiculo
 
+
 # Create your views here.
 
 def index(request):
-    concesionario_list = Operador.objects.all()
-    return render(request, "empresast/index.html",{
-        "concesionario_list": concesionario_list
-    })
-
+    #concesionario_list = Operador.objects.all()
+    #print("Concesionarios =>", concesionario_list)
+    return render(request, "empresast/index.html")
 
 
 def detalle(request, operador_id):
-    concesionario = get_object_or_404(Operador, pk=operador_id)    
+    concesionario = get_object_or_404(Operador, pk=operador_id)
     return render(request, "empresast/detalle.html", {
         "concesionario": concesionario
     })
-    
 
 
 def vehiculos(request, operador_id):
@@ -27,6 +25,6 @@ def vehiculos(request, operador_id):
 
 def operadores(request):
     concesionario_list = Operador.objects.all()
-    return render(request, "empresast/operadores.html",{
+    return render(request, "empresast/concesionario/operadores.html", {
         "concesionario_list": concesionario_list
     })

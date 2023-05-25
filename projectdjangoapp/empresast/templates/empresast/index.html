@@ -1,3 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %}
+
+<div class="jumbotron">
+  <h1 class="display-4">Bienvenidos al Proyecto!</h1>
+  <p class="lead">Sistema de Información de Concesionarios y Vehiculos TM!</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="#" role="button">Ingresar</a>
+</div>
+
+{% endblock %}
+
+
+
+
+
 {% if concesionario_list %}
   <ul>
     {% for concesionario in concesionario_list %}
