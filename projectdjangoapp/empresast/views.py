@@ -19,8 +19,17 @@ def detalle(request, operador_id):
     })
 
 
-def vehiculos(request, operador_id):
-    return HttpResponse(f"estas en la relación de vehículos de cada concesionario {operador_id}")
+def vehiculos(request):
+    # carga la pagina de vehiculos
+    return HttpResponse(f"estas en la página de vehículos")
+
+
+def crear_operador(request):
+    return render(request, "empresast/concesionario/crear_operador.html")
+
+
+def vehiculos_operador(request, operador_id):
+    return render(request, "empresast/vehiculos/vehiculos.html")
 
 
 def operadores(request):

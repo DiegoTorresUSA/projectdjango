@@ -2,20 +2,19 @@
 
 {% block titulo %} Operadores {% endblock %}
 
-{% block contenido %} 
-
-Seccion Operadores
+{% block contenido %}
 
 {% if concesionario_list %}
 
 <div class="card">
   <div class="card-header">
-    stron Relación de Concesionarios
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Concesionarios</h5>
+      <a class="uk-button uk-button-text" href="{% url 'empresast:crear' %}" role="button">Crear Nuevo Concesionario</a>
 
-    <table class="table table-hover">
+  </div>
+  <div class="uk-card">
+    <h5 class="uk-card-title">Relación de Concesionarios</h5>
+
+    <table class="uk-table uk-table-hover">
       <thead>
         <tr>
           <th>Id</th>
@@ -36,7 +35,7 @@ Seccion Operadores
 
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+          <a class="uk-button uk-button-text" href="{% url 'empresast:crear' %}" role="button">Crear Nuevo Concesionario</a>
   </div>
 </div>
 
