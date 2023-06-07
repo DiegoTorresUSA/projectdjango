@@ -4,7 +4,6 @@
 
 {% block contenido %}
 
-{% if concesionario_list %}
 
 <div class="card">
   <div class="card-header">
@@ -28,7 +27,9 @@
           <td>1</td>
           <td>101</td>
           <td>Concexiuon Movil</td>
-          <td>Editar | Eliminar</td>
+          <td><a class="uk-button uk-button-primary uk-button-small" href="{% url 'empresast:editar'%}" role="button">Editar</a> | 
+              <a class="uk-button uk-button-danger uk-button-small" href="#" role="button">Eliminar</a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -43,12 +44,4 @@
 
 
 
-<ul>
-    {% for concesionario in concesionario_list %}
-    <li><a href="{% url 'empresast:detail' concesionario.id %}">{{ concesionario.concesionario_nombre}}</a></li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>No existen Concesionarios</p>
-{% endif %}
 {% endblock %}

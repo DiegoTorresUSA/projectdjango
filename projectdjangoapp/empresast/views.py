@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
-from .models import Operador, Vehiculo
+from .models import Operador
 
 
 # Create your views here.
@@ -27,13 +27,14 @@ def vehiculos(request):
 def crear_operador(request):
     return render(request, "empresast/concesionario/crear_operador.html")
 
+def editar_operador(request):
+    return render(request, "empresast/concesionario/editar_operador.html")
+
 
 def vehiculos_operador(request, operador_id):
     return render(request, "empresast/vehiculos/vehiculos.html")
 
 
 def operadores(request):
-    concesionario_list = Operador.objects.all()
-    return render(request, "empresast/concesionario/operadores.html", {
-        "concesionario_list": concesionario_list
-    })
+    #concesionario_list = Operador.objects.all()
+    return render(request, "empresast/concesionario/operadores.html")

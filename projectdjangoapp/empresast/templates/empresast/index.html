@@ -12,17 +12,3 @@
 </div>
 
 {% endblock %}
-
-
-
-
-
-{% if concesionario_list %}
-  <ul>
-    {% for concesionario in concesionario_list %}
-    <li><a href="{% url 'empresast:detail' concesionario.id %}">{{ concesionario.concesionario_nombre}}</a></li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>No existen Concesionarios</p>
-{% endif %}
