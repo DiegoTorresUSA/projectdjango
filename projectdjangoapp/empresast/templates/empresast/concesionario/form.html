@@ -1,8 +1,26 @@
 <form action="" enctype="multipart/form-data" method="post" class="uk-form-stacked">
+    {% csrf_token %}
+    {% for campo in formulario %}
 
-    <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Digita el Nombre del Concesionario" aria-label="Input">
+        <label class="uk-form-label">{{ campo.label }}</label>
+
+        <div class="uk-margin">
+            <input 
+            class="uk-input" 
+            type= {{ campo.field.widget.input_type }} 
+            name= {{ campo.name }}
+            placeholder={{ campo.label }}
+            aria-label="Input"
+            value="{{ campo.value | default:'' }}">
         </div>
 
+        <div class="uk-alert-danger">{{ campo.errors }}</div>
+    {% endfor %}
 
+    <input 
+    name="" 
+    id="" 
+    class="uk-button uk-button-default"
+    type="submit"
+    value="Guardar Informacion">
 </form>

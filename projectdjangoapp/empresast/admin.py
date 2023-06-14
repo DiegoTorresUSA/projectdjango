@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Operador
+from .models import Concesionario
 
 # Register your models here.
-admin.site.register([Operador])
+admin.site.register([Concesionario])

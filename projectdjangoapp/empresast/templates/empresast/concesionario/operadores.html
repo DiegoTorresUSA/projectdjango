@@ -8,7 +8,6 @@
 <div class="card">
   <div class="card-header">
       <a class="uk-button uk-button-text" href="{% url 'empresast:crear' %}" role="button">Crear Nuevo Concesionario</a>
-
   </div>
   <div class="uk-card">
     <h5 class="uk-card-title">Relación de Concesionarios</h5>
@@ -17,31 +16,26 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Concesionario Código</th>
+          <th>Siglas</th>
           <th>Concesionario Nombre</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>101</td>
-          <td>Concexiuon Movil</td>
-          <td><a class="uk-button uk-button-primary uk-button-small" href="{% url 'empresast:editar'%}" role="button">Editar</a> | 
-              <a class="uk-button uk-button-danger uk-button-small" href="#" role="button">Eliminar</a>
+          {% for concesionario in concesionarios%}
+          <td>{{ concesionario.id }}</td>
+          <td>{{ concesionario.concesionario_siglas }}</td>
+          <td>{{ concesionario.concesionario_nombre }}</td>          
+          <td><a class="uk-button uk-button-primary uk-button-small" href="{% url 'empresast:edit' concesionario.id %}" role="button">Editar</a> | 
+              <a class="uk-button uk-button-danger uk-button-small" href="{% url 'empresast:eliminar' concesionario.id %}" role="button">Eliminar</a>
           </td>
         </tr>
+          {% endfor %}
       </tbody>
     </table>
-
-  </div>
-  <div class="card-footer text-muted">
-          <a class="uk-button uk-button-text" href="{% url 'empresast:crear' %}" role="button">Crear Nuevo Concesionario</a>
   </div>
 </div>
-
-
-
 
 
 {% endblock %}
