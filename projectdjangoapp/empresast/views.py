@@ -22,7 +22,10 @@ def detalle(request, operador_id):
 
 def vehiculos(request):
     # carga la pagina de vehiculos
-    return HttpResponse(f"estas en la página de vehículos")
+    return render(request, "empresast/vehiculos/vehiculos.html")
+
+#def crear_vehiculo(request):
+    
 
 
 def crear_operador(request):
@@ -38,6 +41,7 @@ def crear_operador(request):
 def borrar_concesionario(request, id):
     concesionario = Concesionario.objects.get(id = id)
     concesionario.delete()
+    messages.success(request, 'Registro Eliminado correctamente')
     response = redirect('empresast:concesionarios')
     return response
 
